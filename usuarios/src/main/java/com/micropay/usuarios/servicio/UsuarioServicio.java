@@ -12,22 +12,32 @@ public class UsuarioServicio {
     private final AtomicLong contadorId = new AtomicLong(1);
     
     public Usuario crearUsuario(Usuario usuarioRequest) {
-        // Verificar email duplicado
-        for (Usuario usuarioExistente : usuarios) {
-            if (usuarioExistente.getEmail().equals(usuarioRequest.getEmail())) {
-                throw new RuntimeException("Email ya registrado");
-            }
-        }
-
-        // Crear usuario con ID
-        Usuario usuarioCreado = new Usuario();
-        usuarioCreado.setId(contadorId.getAndIncrement());
-        usuarioCreado.setNombre(usuarioRequest.getNombre());
-        usuarioCreado.setEmail(usuarioRequest.getEmail());
-        usuarioCreado.setDocumento(usuarioRequest.getDocumento());
-        usuarioCreado.setTelefono(usuarioRequest.getTelefono());
-
+        validarEmailUnico(usuarioRequest.getEmail());
+        Usuario usuarioCreado = construirUsuarioConId(usuarioRequest);
         usuarios.add(usuarioCreado);
         return usuarioCreado;
+    }
+
+    public List<Usuario> listarUsuarios() {
+        return new ArrayList<>(usuarios);
+    }
+
+    private void validarEmailUnico(String email) {
+        boolean emailExiste = usuarios.stream()
+            .anyMatch(usuario -> usuario.getEmail().equals(email));
+
+        if (emailExiste) {
+            throw new RuntimeException("Email ya registrado");
+        }
+    }
+
+    private Usuario construirUsuarioConId(Usuario usuarioRequest) {
+        Usuario usuario = new Usuario();
+        usuario.setId(contadorId.getAndIncrement());
+        usuario.setNombre(usuarioRequest.getNombre());
+        usuario.setEmail(usuarioRequest.getEmail());
+        usuario.setDocumento(usuarioRequest.getDocumento());
+        usuario.setTelefono(usuarioRequest.getTelefono());
+        return usuario;
     }
 }
