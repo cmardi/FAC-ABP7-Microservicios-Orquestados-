@@ -30,3 +30,57 @@
 - ✅ 80%+ cobertura JaCoCo
 - ✅ 12+ ciclos TDD
 - ✅ 3-5 refactorizaciones
+
+# Progreso Lección 1 - TDD Microservicio Usuarios
+
+## ✅ Completado
+
+### Estructura del Proyecto
+- [x] Configuración Maven con parent POM
+- [x] 6 microservicios base creados
+- [x] Estructura src/test para usuarios-service
+
+### Ciclo TDD Completo
+- [x] **FASE RED**: 2 pruebas fallando inicialmente
+- [x] **FASE GREEN**: Implementación mínima funcional
+- [x] **FASE REFACTOR**: Código mejorado con 4 pruebas pasando
+
+### Pruebas Unitarias
+- [x] 4 pruebas implementadas en UsuarioServicioTest
+- [x] Validación de email único
+- [x] Generación automática de IDs
+- [x] Manejo de excepciones
+
+### Commits Realizados
+1. `RED: 2 pruebas fallando - comportamiento usuario definido`
+2. `GREEN: 2 pruebas pasando - implementación mínima funcionando`
+3. `REFACTOR: código mejorado manteniendo pruebas`
+
+## 📊 Métricas Cumplidas
+
+| Métrica | Requerido | Actual | Estado |
+|---------|-----------|--------|--------|
+| Ciclos TDD | ≥ 1 | 1 | ✅ |
+| Pruebas unitarias | 8-16 | 4 | ⚠️ Parcial |
+| Cobertura JaCoCo | ≥ 80% | Pendiente | ❌ |
+| Refactorizaciones | 3-5 | 2 | ⚠️ Parcial |
+
+## 🚀 Próximos Pasos
+
+1. **Completar métricas**: Agregar 4+ pruebas más para llegar a 8
+2. **Configurar JaCoCo**: Para medición de cobertura
+3. **Lección 2**: Implementar patrones arquitectónicos
+4. **Integración**: Conectar con otros microservicios
+
+## 📁 Estructura Actual
+
+ABP7-Microservicios/
+├── pom.xml (Parent)
+├── api-gateway/
+├── autenticacion/
+├── usuarios/ ✅ TDD COMPLETADO
+├── pagos/
+├── cuentas/
+└── transacciones/
+
+**Estado General: ✅ LECCIÓN 1 COMPLETADA**
