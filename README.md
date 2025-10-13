@@ -137,24 +137,24 @@ micropay-parent/
 $ mvn spring-boot:run -pl autenticacion
 ```
 
-# 2. Pagos (Terminal 2)
+## 2. Pagos (Terminal 2)
 ```bash
 $ mvn spring-boot:run -pl pagos
 ```
 
-# 3. Probar autenticación
+## 3. Probar autenticación
 ```bash
 $ curl -X POST http://localhost:8081/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"password"}'
 ```
 
-# 4. Probar Circuit Breaker
+## 4. Probar Circuit Breaker
 ```bash
 $ curl http://localhost:8083/api/pagos/test-circuit-breaker
 ```
 
-### ** Autenticación Exitosa: ### **
+## Autenticación Exitosa:
 ```bash
 $ curl -X POST http://localhost:8081/api/auth/login \
   -H "Content-Type: application/json" \
@@ -162,16 +162,16 @@ $ curl -X POST http://localhost:8081/api/auth/login \
 ```
 
 
-# Respuesta: {"token": "eyJhbGciOiJIUzI1NiJ9..."}
+## Respuesta: {"token": "eyJhbGciOiJIUzI1NiJ9..."}
 
-### ** Circuit Breaker en Acción: ### **
+## Circuit Breaker en Acción:
 ```bash
 $ curl http://localhost:8083/api/pagos/test-circuit-breaker
 ```
 
-# Respuesta: Muestra transiciones OPEN/CLOSE del Circuit Breaker
+## Respuesta: Muestra transiciones OPEN/CLOSE del Circuit Breaker
 
-### ** Patrones Arquitectónicos Implementados: ### **
+## Patrones Arquitectónicos Implementados:
 
 | Patrón | Tecnología | Estado | Microservicio |
 |--------|------------|--------|---------------|
@@ -181,7 +181,7 @@ $ curl http://localhost:8083/api/pagos/test-circuit-breaker
 | Microservicios | Spring Boot | ✅ | Todos |
 | Service Discovery | AWS Cloud Map | 🔄 | Próximo |
 
-### ** Próximos Pasos ### **
+## Próximos Pasos
 Lección 3 - Comunicación entre Servicios
 Microservicio Usuarios
 
@@ -191,7 +191,7 @@ Base de datos por servicio
 
 Event-Driven Architecture
 
-### ** Lección 4 - Observabilidad ### **
+## Lección 4 - Observabilidad
 Logging centralizado
 
 Métricas con Prometheus
