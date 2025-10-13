@@ -133,9 +133,10 @@ micropay-parent/
 ## 1. Iniciar Servicios
 
 ### Autenticación (Terminal 1)
+```Bash
+$ mvn spring-boot:run -pl autenticacion
+```
 
-| mvn spring-boot:run -pl autenticacion |
-|---------------------------------------|
 # 2. Pagos (Terminal 2)
 
 | mvn spring-boot:run -pl pagos |
