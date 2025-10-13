@@ -1,21 +1,22 @@
 package com.micropay.pagos.controlador;
 
 import com.micropay.pagos.servicio.PagoServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/pagos")
-public class PagoControlador {
-    private final PagoServicio pagoServicio;
-    
-    public PagoControlador(PagoServicio pagoServicio) {
-        this.pagoServicio = pagoServicio;
+public class PagosControlador {
+
+    @Autowired
+    private PagoServicio pagoServicio;
+
+    @PostMapping("/procesar")
+    public String procesarPago() {
+        Long pagoId = System.currentTimeMillis(); // ID único
+        return pagoServicio.procesarPago(pagoId);
     }
 
-    @PostMapping("/{id}/procesar")
-    public String procesarPago(@PathVariable Long id) {
-        return pagoServicio.procesarPago(id);
-    }
 
     @GetMapping("/test-circuit-breaker")
     public String testCircuitBreaker() {
