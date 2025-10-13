@@ -133,25 +133,26 @@ micropay-parent/
 ## 1. Iniciar Servicios
 
 ### Autenticación (Terminal 1)
-|---------------------------------------|
+
 | mvn spring-boot:run -pl autenticacion |
 |---------------------------------------|
 # 2. Pagos (Terminal 2)
-|-------------------------------|
+
 | mvn spring-boot:run -pl pagos |
 |-------------------------------|
 # 3. Probar autenticación
-|----------------------------------------------------|
+
 | curl -X POST http://localhost:8081/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"password"}' |
+|----------------------------------------------------|
 
 # 4. Probar Circuit Breaker
-|-----------------------------------------------------------|
+
 | curl http://localhost:8083/api/pagos/test-circuit-breaker |
 |-----------------------------------------------------------|
 ### ** Autenticación Exitosa: ### **
-|-----------------------------------------------------|
+
 | curl -X POST http://localhost:8081/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"password"}' |
@@ -161,9 +162,9 @@ micropay-parent/
 # Respuesta: {"token": "eyJhbGciOiJIUzI1NiJ9..."}
 
 ### ** Circuit Breaker en Acción: ### **
-|-----------------------------------------------------------|
+
 | curl http://localhost:8083/api/pagos/test-circuit-breaker |
-|-----------------------------------------------------------|
+
 
 # Respuesta: Muestra transiciones OPEN/CLOSE del Circuit Breaker
 
